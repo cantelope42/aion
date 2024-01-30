@@ -3,9 +3,9 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=.7">
     <meta name="og:image" content="VCNU1.png">
-    <link rel="shortcut icon" type="image/png" href="VCNU1.png"/>
-    <title>dead can dance - aion </title>
-    <meta name="description" content="dead can dance - aion">
+		<link rel="shortcut icon" type="image/png" href="VCNU1.png"/>
+    <title>dead can dance - aion</title>
+		<meta name="description" content="dead can dance - aion">
     <style>
       body, html{
         border: 0;
@@ -279,7 +279,7 @@
     <div class="main">
       <br>
       <label for="shuffle">
-        <input type="checkbox" id="shuffle" oninput="toggleShuffle(this)">
+        <input type="checkbox" checked id="shuffle" oninput="toggleShuffle(this)">
         shuffle
       </label>
       <!-- <button onclick="showModal('#addTrackModal')" class="normalButtons">add track(s)</button> -->
@@ -303,7 +303,7 @@
       let iframeDiv = document.querySelector('#iframeDiv')
       let buffer_el = ''
       let nextRnd
-      let shuffle = false
+      let shuffle = true
       let exact = false
       let allWords = true      
       let bufferedTrack=document.querySelector('#bufferedTrack')
@@ -422,7 +422,7 @@
       
       preloadNext=()=>{
         setTimeout(()=>{
-          nextRnd = shuffle? Rn()*tracks.length|0 : (curIDX = (curIDX + 1)%tracks.length)
+          nextRnd = shuffle? Rn()*tracks.length|0 : (curIDX + 1)%tracks.length
           let nextTrackName=decodeURI((l=tracks[nextRnd].split('/'))[l.length-1])
           let t=0
           let loadingTimer = setInterval(()=>{
@@ -519,7 +519,8 @@
       }
 
 
-tracks = [['As the Bell Rings the Maypole Spins (Remastered) [RAktlZ_xJP0].mp3',
+      tracks = [
+['As the Bell Rings the Maypole Spins (Remastered) [RAktlZ_xJP0].mp3',
 'Radharc (Remastered) [ju0E4NaTuKM].mp3',
 'The Garden of Zephirus (Remastered) [AFIJVgCG0mo].mp3',
 'Black Sun (Remastered) [09gQ_BhVqts].mp3',
@@ -530,7 +531,9 @@ tracks = [['As the Bell Rings the Maypole Spins (Remastered) [RAktlZ_xJP0].mp3',
 'The Song of the Sibyl (Remastered) [swDzw_-RR1g].mp3',
 'Mephisto (Remastered) [KGegRy84Ntg].mp3',
 'The End of Words (Remastered) [-Tco4jbdxNw].mp3',
-'Wilderness (Remastered) [VdKMleVP-s8].mp3']]
+'Wilderness (Remastered) [VdKMleVP-s8].mp3'],
+      ]
+
 
       tracks = tracks.map((v,i)=> {
         return v.map((q,j)=>{
