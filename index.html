@@ -422,7 +422,7 @@
       
       preloadNext=()=>{
         setTimeout(()=>{
-          nextRnd = shuffle? Rn()*tracks.length|0 : (curIDX + 1)%tracks.length
+          nextRnd = shuffle? Rn()*tracks.length|0 : (curIDX = (curIDX + 1)%tracks.length)
           let nextTrackName=decodeURI((l=tracks[nextRnd].split('/'))[l.length-1])
           let t=0
           let loadingTimer = setInterval(()=>{
